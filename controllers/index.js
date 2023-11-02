@@ -1,5 +1,8 @@
-const tweetsController = require("./tweets.js")
+const accountsControllers = require('./accounts');
+const tweetsController = require("./tweets")
 
-module.exports = {
+module.exports ={
+    accountsControllers,
     tweetsController
-}
+};
+
