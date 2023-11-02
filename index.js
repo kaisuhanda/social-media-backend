@@ -1,23 +1,24 @@
 require("dotenv").config();
-const PORT=process.env.PORT||2000;
-const express =require("express");
-const app= express();
-const cors =require("cors");
+
+const express = require("express");
+const app = express();
+const PORT = process.env.PORT || 2000;
+const cors = require("cors");
+const { sequelize } = require("./config/config")
 
 app.use(cors());
 app.use(express.json());
-
-
-app.get('/', (req, res) => {
-    return res.status(200).send('API RUNNING ', PORT)
-})
-
-//#define ROUTER
- const {accountsRouter}= require("./routers");
- app.use("/accounts", accountsRouter);
- app.use("/", accountsRouter);
-
-app.listen(PORT,()=>{
-    console.log("API Running in port ",PORT);
+app.get("/", (req, res) => {
+    return res.status(200).send("<h1>HALO SOSMED</h1>")
 });
 
+// #define ROUTER
+const { tweetsRouter } = require("./routers")
+app.use("/tweets", tweetsRouter)
+const {accountsRouter}= require("./routers");
+app.use("/accounts", accountsRouter);
+
+
+app.listen(PORT, () => {
+    console.log("ORM API RUNNING", PORT);
+});
