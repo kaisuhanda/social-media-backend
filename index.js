@@ -15,7 +15,7 @@ app.get("/", (req, res) => {
 // #define ROUTER
 const { tweetsRouter } = require("./routers")
 app.use("/tweets", tweetsRouter)
-const {accountsRouter}= require("./routers");
+const { accountsRouter }= require("./routers");
 app.use("/accounts", accountsRouter);
 
 

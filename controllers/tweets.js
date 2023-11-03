@@ -7,7 +7,6 @@ module.exports = {
             console.log("IMAGE", req.body.image.split("http").length);
             if (req.body.posts.length <= 150 && req.body.image.split("http").length < 3) {
                 const result = await tweets.create(req.body);
-                // console.log(result);
                 return res.status(201).send(result);
             } else {
                 throw {
